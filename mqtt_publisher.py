@@ -10,7 +10,7 @@ topic = "example/topic"
 while True:
     message = "Hello, MQTT!"
     publish.single(topic, message, hostname=broker_address, port=port)
-    print(f"Published: {message}")
+    print(f"Published: {message}", flush=True)
     time.sleep(2)
 
 print("Terminated Publisher")

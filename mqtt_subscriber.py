@@ -7,7 +7,7 @@ topic = "example/topic"
 
 # Callback when a message is received
 def on_message(client, userdata, message):
-    print(f"Received message: {message.payload.decode()}")
+    print(f"Received message: {message.payload.decode()}", flush=True)
 
 # Create MQTT client
 client = mqtt.Client()
