@@ -22,4 +22,4 @@ client.connect(broker_address, port=port)
 client.subscribe(topic)
 
 # Loop to listen for messages
-#client.loop_forever()
+client.loop_forever()
