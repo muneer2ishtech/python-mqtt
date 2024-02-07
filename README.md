@@ -21,3 +21,40 @@ Step 4: Run the Publisher
 - publish messages to an MQTT topic.
 
 `python mqtt_publisher.py`
+
+
+## Run using docker pythong image
+```
+docker run -it --rm --name mqtt_subscriber -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3 python mqtt_subscriber.py
+```
+
+```
+docker run -it --rm --name mqtt_publisher -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3 python mqtt_publisher.py
+```
+
+https://cedalo.com/blog/mosquitto-docker-configuration-ultimate-guide/
+
+https://github.com/eclipse/mosquitto/issues/1580
+
+
+```
+docker-compose -f eclipse-mosquitto-docker-compose.yml up -d
+```
+
+```
+docker ps
+
+docker inspect CONTAINER_ID | grep "IPAddress"
+```
+
+```
+services:
+    ...
+    networks:
+      - mosquitto
+networks:
+    mosquitto:
+        name: mosquitto
+        driver: bridge
+```
+

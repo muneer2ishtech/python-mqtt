@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  docker-mqtt:
+    image: eclipse-mosquitto
+    container_name: docker-mqtt
+    volumes:
+      - /d/opt/eclipse-mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - /d/opt/eclipse-mosquitto/data:/mosquitto/data
+      - /d/opt/eclipse-mosquitto/log:/mosquitto/log
+    restart: always
+    ports:
+      - 1883:1883
+      - 8883:8883
+      - 9001:9001
